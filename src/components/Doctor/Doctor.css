@@ -1,0 +1,6 @@
+.single-doctor .img:hover {
+  transform: scale(1.1);
+}
+.single-doctor .btn-book {
+  background-color: #12c5c3;
+}

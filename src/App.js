@@ -7,31 +7,35 @@ import {
   Link
 } from "react-router-dom";
 import NotFound from './pages/NotFound/NotFound';
-import Home from './pages/Home/Home/Home';
+import Home from './pages/Home/Home';
+import Banner from './components/Banner/Banner';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <Router>
+      <Header></Header>
       <Switch>
-        <Route exact path="/">
 
-        </Route>
-        <Route exact path="/home">
+        <Route exact path="/">
           <Home></Home>
         </Route>
-        <Route exact path="/courses">
+        <Route path="/home">
+          <Home></Home>
+        </Route>
+        <Route path="/courses">
 
         </Route>
-        <Route exact path="/about">
+        <Route path="/about">
 
         </Route>
-        <Route exact path="/contact">
+        <Route path="/contact">
 
         </Route>
         <Route path="/login">
 
         </Route>
-        <Route exact path="*">
+        <Route path="*">
           <NotFound></NotFound>
         </Route>
       </Switch>
