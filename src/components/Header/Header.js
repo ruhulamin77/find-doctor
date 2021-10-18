@@ -1,20 +1,34 @@
+
+import { getAuth, signOut } from '@firebase/auth';
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import logo from '../../images/logo.png'
 
 const Header = () => {
+    const { user, logOut } = useAuth();
+
     return (
         <div>
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="light" expand="lg" sticky="top">
                 <Container>
                     <div className="me-5"><img src={logo} alt="" /></div>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link to="/home">Home</Nav.Link>
-                            <Nav.Link to="/services">Link</Nav.Link>
-                        </Nav>
+
+                    <Navbar.Toggle />
+                    <Navbar.Collapse className="justify-content-end">
+                        <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/services">Link</Nav.Link>
+                        <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                        {user?.email ? <Button onClick={logOut} variant="secondary" size="sm">Logout</Button>
+                            :
+                            <Nav.Link as={Link} to="/login">Login</Nav.Link>}
+                        <Navbar.Text>
+                            Signed in as: <a href="#login">{user?.displayName}</a>
+                        </Navbar.Text>
                     </Navbar.Collapse>
+
+
                 </Container>
             </Navbar>
         </div>

@@ -2,21 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './Doctors.css'
 import { Container, Row } from 'react-bootstrap';
 import Doctor from '../Doctor/Doctor';
-
+import useAuth from '../../hooks/useAuth';
 
 
 const Doctors = () => {
-    const [doctors, setDoctors] = useState([])
-
-    useEffect(() => {
-        fetch('/doctorsData.json')
-            .then(res => res.json())
-            .then(data => setDoctors(data))
-    }, [])
-    for (const dr of doctors) {
-        console.log(dr);
-    }
-
+    const { doctors } = useAuth()
     return (
         <Container className="my-5">
             <h2 className="choose-text mt-5">CHOOSE YOUR COSMETICS SPECIALIST</h2>

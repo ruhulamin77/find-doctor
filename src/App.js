@@ -10,36 +10,44 @@ import NotFound from './pages/NotFound/NotFound';
 import Home from './pages/Home/Home';
 import Banner from './components/Banner/Banner';
 import Header from './components/Header/Header';
+import Booking from './pages/Booking/Booking';
+import Login from './pages/Login/Login';
+import AuthProvider from './context/AuthProvider';
+import PrivetRoute from './components/PrivetRoute/PrivetRoute';
 
 function App() {
   return (
-    <Router>
-      <Header></Header>
-      <Switch>
+    <AuthProvider>
+      <Router>
+        <Header></Header>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route path="/doctors">
 
-        <Route exact path="/">
-          <Home></Home>
-        </Route>
-        <Route path="/home">
-          <Home></Home>
-        </Route>
-        <Route path="/courses">
+          </Route>
+          <PrivetRoute path="/booking/:doctorId">
+            <Booking></Booking>
+          </PrivetRoute>
+          <Route path="/about">
 
-        </Route>
-        <Route path="/about">
+          </Route>
+          <Route path="/contact">
 
-        </Route>
-        <Route path="/contact">
-
-        </Route>
-        <Route path="/login">
-
-        </Route>
-        <Route path="*">
-          <NotFound></NotFound>
-        </Route>
-      </Switch>
-    </Router>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
+        </Switch>
+      </Router>
+    </AuthProvider>
   );
 }
 
