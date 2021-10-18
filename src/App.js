@@ -14,6 +14,7 @@ import Booking from './pages/Booking/Booking';
 import Login from './pages/Login/Login';
 import AuthProvider from './context/AuthProvider';
 import PrivetRoute from './components/PrivetRoute/PrivetRoute';
+import Doctors from './components/Doctors/Doctors';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
             <Home></Home>
           </Route>
           <Route path="/doctors">
-
+            <Doctors></Doctors>
           </Route>
           <PrivetRoute path="/booking/:doctorId">
             <Booking></Booking>
