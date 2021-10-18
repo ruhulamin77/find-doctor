@@ -1,0 +1,96 @@
+{
+    "doctors":[
+        {
+            "id": 1,
+            "name": "Dr. Usman Yousaf",
+            "description": "MBBS, MDS - Cosmetics Surgeon",
+            "address": "Mumbai, India",
+            "rating": 4.5,
+            "reviews": 28,
+            "img": "https://i.ibb.co/X51NMDg/1-1.png"
+            
+        },
+        {
+            "id": 2,
+            "name": "Dr. Lane Seay",
+            "description": "MBBS, MDS - Cosmetics Surgeon",
+            "address": "Dhaka, Bangladesh",
+            "rating": 4.5,
+            "reviews": 45,
+            "img": "https://i.ibb.co/wNkfvnX/1-2.png"
+            
+        },
+        {
+            "id": 3,
+            "name": "Dr. Matthew Dodd",
+            "description": "MBBS, MDS - Cosmetics Surgeon",
+            "address": "Kolkata, India",
+            "rating": 4.4,
+            "reviews": 55,
+            "img": "https://i.ibb.co/mb56QDQ/1-3.png"
+            
+        },
+        {
+            "id": 4,
+            "name": "Dr. Carol Alba",
+            "description": "MBBS, MDS - Cosmetics Surgeon",
+            "address": "Albama, America",
+            "rating": 4.7,
+            "reviews": 45,
+            "img": "https://i.ibb.co/hYzHW5W/1-4.png"
+            
+        },
+        
+        {
+            "id": 5,
+            "name": "Dr. Eric Buckles ",
+            "description": "MBBS, MDS - Cosmetics Surgeon",
+            "address": "California, America",
+            "rating": 4.5,
+            "reviews": 29,
+            "img": "https://i.ibb.co/6m1J9Hw/1-5.png"
+            
+        },
+        {
+            "id": 6,
+            "name": "Dr. Julid Holmes",
+            "description": "MBBS, MDS - Cosmetics Surgeon",
+            "address": "Texas, America",
+            "rating": 4.5,
+            "reviews": 33,
+            "img": "https://i.ibb.co/gS4nHPz/1-6.png"
+            
+        }
+    ],
+   
+    "specialists":[
+        {
+            "id": 1,
+            "name": "Hardware Cosmetology",
+            "description": "What is hardware cosmetology? Hardware cosmetology — the direction which range of opportunities covers practically all problems which can arise with the person — from esthetic shortcomings of skin (a post-acne, hems, pigmentation, vascular asterisks, enlarged pores, wrinkles) before the expressed age changes (gravitational ptoz, changes of a face",
+            "img": "https://doccure-react.dreamguystech.com/template-cosmetics/ea064c0330698d4cef6d0062f9744048.png"
+            
+        },
+        {
+            "id": 2,
+            "name": "Aesthetic Cosmetology",
+            "description": "This Level 1 course offers intensive coverage of key topics such as skin conditioning, chemical peeling, dermal injectables, laser training, and most importantly common complications and management of such complications. The programme includes theory lectures, live demonstrations, and hands-on training with volunteers.",
+            "img": "https://doccure-react.dreamguystech.com/template-cosmetics/0d2efee73fefb10caa62b86d0c2c6fbb.png"
+            
+        },
+        {
+            "id": 3,
+            "name": "Injection Cosmetology",
+            "description": "Injection cosmetology is a complex of procedures that will help your face and body always stay young. It is the injection technique that allows you to quickly, efficiently and safely: fight age-related skin changes. deeply moisturize the skin from the inside. eliminate skin imperfections.",
+            "img": "https://doccure-react.dreamguystech.com/template-cosmetics/8145117521c10f89d2c594c164025511.png"
+            
+        },
+        {
+            "id": 4,
+            "name": "Laser Cosmetology",
+            "description": "Laser cosmetology is used for a variety of aesthetic procedures. One of the most well known of these procedures is permanent hair removal.",
+            "img": "https://doccure-react.dreamguystech.com/template-cosmetics/ded06a4b4c750e458e0411991bb7af60.png"
+            
+        }
+    ]
+}
