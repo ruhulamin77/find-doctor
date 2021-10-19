@@ -1,9 +1,9 @@
-.login-container {
+.register-container {
   display: flex;
   justify-content: center;
 }
 
-.login-form input {
+.register-form input {
   display: block;
   margin-bottom: 20px;
 }

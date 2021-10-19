@@ -7,7 +7,7 @@ import useAuth from '../../hooks/useAuth';
 import logo from '../../images/logo.png'
 
 const Header = () => {
-    const { user, logOut } = useAuth();
+    const { user, logOut, isLogin } = useAuth();
 
     return (
         <div>
@@ -21,11 +21,11 @@ const Header = () => {
                         <Nav.Link as={Link} to="/doctors">Doctors</Nav.Link>
                         <Nav.Link as={Link} to="/about">About</Nav.Link>
                         <Nav.Link as={Link} to="/contact">Countact</Nav.Link>
-                        {user?.email ? <Button onClick={logOut} variant="secondary" size="sm" className="mx-3">Logout</Button>
+                        {isLogin ? <Button onClick={logOut} variant="secondary" size="sm" className="mx-3">Logout</Button>
                             :
                             <Nav.Link as={Link} to="/login">Login</Nav.Link>}
                         <Navbar.Text>
-                            {user?.email && `Signed in as:`} <a href="#login">{user?.displayName}</a>
+                            {isLogin && `Signed in as:`} {isLogin && <a href="#login">{user?.email}</a>}
                         </Navbar.Text>
                     </Navbar.Collapse>
 

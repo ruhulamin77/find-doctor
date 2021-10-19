@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializationAuthentication from "../firebase/firebase.init";
 
@@ -8,6 +8,11 @@ const useFirebase = () => {
     const [user, setUser] = useState({})
     const [doctors, setDoctors] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
+    const [isLogin, setIsLogin] = useState(false);
 
     const auth = getAuth();
 
@@ -18,12 +23,15 @@ const useFirebase = () => {
             .then(data => setDoctors(data))
     }, []);
 
-    const signInUsigGoogle = () => {
+    const signInUsingGoogle = () => {
         setIsLoading(true)
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 setUser(result.user)
+            })
+            .then(() => {
+                setIsLogin(true)
             })
             .finally(() => setIsLoading(false));
     };
@@ -41,23 +49,87 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, []);
 
-
-
-
     // logging out
     const logOut = () => {
+        setIsLogin(false)
         setIsLoading(true)
         signOut(auth)
             .then(() => { })
             .finally(() => setIsLoading(false));
     };
+
+    const handleRegistration = (e) => {
+        e.preventDefault()
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                // Signed in 
+                const user = result.user;
+                console.log(user);
+                setError('')
+                // setSuccess('Registration Successfull')
+
+            })
+            .then(() => {
+                setIsLogin(false)
+            })
+            .then(() => {
+                setEmail('')
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                setError(errorMessage)
+                setSuccess('')
+            });
+    }
+
+    const handleLoginUsingEmailAndPassword = (e) => {
+
+        e.preventDefault()
+        signInWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                const user = result.user;
+                setError('')
+                // setSuccess('Login Successful')
+
+
+            })
+            .then(() => {
+                setIsLogin(true)
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+            });
+    }
+
+    const handleEmailChange = (e) => {
+        console.log(e.target.value);
+        setEmail(e.target.value)
+    }
+    const handlePasswordChange = (e) => {
+        console.log(e.target.value);
+        setPassword(e.target.value);
+    }
+
+
+
     // retuen all functionalities and states
     return {
         user,
         doctors,
         isLoading,
-        signInUsigGoogle,
-        logOut
+        signInUsingGoogle,
+        logOut,
+        handleEmailChange,
+        handlePasswordChange,
+        handleRegistration,
+        error,
+        success,
+        handleLoginUsingEmailAndPassword,
+        isLogin
+
     }
 }
 

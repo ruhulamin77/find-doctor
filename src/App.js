@@ -15,6 +15,7 @@ import Login from './pages/Login/Login';
 import AuthProvider from './context/AuthProvider';
 import PrivetRoute from './components/PrivetRoute/PrivetRoute';
 import Doctors from './components/Doctors/Doctors';
+import Register from './pages/Register/Register';
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route path="/contact">
 
+          </Route>
+          <Route path="/register">
+            <Register></Register>
           </Route>
           <Route path="/login">
             <Login></Login>
