@@ -1,14 +1,26 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import Specialists from '../../components/Specialists/Specialists';
+import useAuth from '../../hooks/useAuth';
 
 const About = () => {
+    const { specialist } = useAuth()
+    console.log(specialist);
     return (
         <Container className="my-5">
 
-            <Row>
+            <Row className="my-5">
+                <h2 className="choose-text my-5">WE ARE SPECIALISTS IN</h2>
 
+                <Row lg={3} md={2} xs={1} gap={3} className="doctors-container ">
+                    {
+                        specialist?.map(special => <Specialists
+                            key={special.id}
+                            special={special}></Specialists>)
+                    }
+                </Row>
             </Row>
-            <Row>
+            <Row className="my-5">
                 <Col >
                     <h2>OUR SERVICES RANGE</h2>
                     <p>

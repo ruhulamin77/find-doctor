@@ -10,10 +10,12 @@ const Doctors = () => {
     return (
         <Container className="my-5">
             <h2 className="choose-text mt-5">CHOOSE YOUR COSMETICS SPECIALIST</h2>
-            <h4></h4>
+
             <Row lg={3} md={2} xs={1} gap={3} className="doctors-container ">
                 {
-                    doctors?.map(doctor => <Doctor doctor={doctor}></Doctor>)
+                    doctors?.map(doctor => <Doctor
+                        key={doctor.id}
+                        doctor={doctor}></Doctor>)
                 }
             </Row>
         </Container>

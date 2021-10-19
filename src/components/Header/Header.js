@@ -13,7 +13,8 @@ const Header = () => {
         <div>
             <Navbar bg="light" expand="lg" sticky="top">
                 <Container>
-                    <div className="me-5"><img src={logo} alt="" /></div>
+
+                    <Nav.Link as={Link} to="/home"><img src={logo} alt="" /></Nav.Link>
 
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
@@ -21,18 +22,19 @@ const Header = () => {
                         <Nav.Link as={Link} to="/doctors">Doctors</Nav.Link>
                         <Nav.Link as={Link} to="/about">About</Nav.Link>
                         <Nav.Link as={Link} to="/contact">Countact</Nav.Link>
-                        {isLogin ? <Button onClick={logOut} variant="secondary" size="sm" className="mx-3">Logout</Button>
+
+                        {user?.email ? <Button onClick={logOut} variant="secondary" size="sm" className="mx-3">Logout</Button>
                             :
                             <Nav.Link as={Link} to="/login">Login</Nav.Link>}
                         <Navbar.Text>
-                            {isLogin && `Signed in as:`} {isLogin && <a href="#login">{user?.displayName}</a>}
+                            {user?.email && `Signed in as:`} <a href="#login">{user?.displayName}</a>
                         </Navbar.Text>
                     </Navbar.Collapse>
 
 
                 </Container>
             </Navbar>
-        </div>
+        </div >
     );
 };
 

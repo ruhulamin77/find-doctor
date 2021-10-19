@@ -8,6 +8,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({})
     const [name, setName] = useState('')
     const [doctors, setDoctors] = useState([])
+    const [specialist, setSpecialist] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -22,6 +23,12 @@ const useFirebase = () => {
         fetch('/doctorsData.json')
             .then(res => res.json())
             .then(data => setDoctors(data))
+    }, []);
+
+    useEffect(() => {
+        fetch('/doctorsData2.json')
+            .then(res => res.json())
+            .then(data => setSpecialist(data))
     }, []);
 
     const signInUsingGoogle = () => {
@@ -69,6 +76,7 @@ const useFirebase = () => {
                 console.log(user);
                 setError('')
                 updateUserName()
+                window.location.reload()
                 // setSuccess('Registration Successfull')
 
             })
@@ -144,7 +152,8 @@ const useFirebase = () => {
         error,
         success,
         handleLoginUsingEmailAndPassword,
-        isLogin
+        isLogin,
+        specialist
 
     }
 }
