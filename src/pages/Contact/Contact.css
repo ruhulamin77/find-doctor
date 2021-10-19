@@ -1,0 +1,12 @@
+.contact-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f6f9ff;
+}
+.contact-img img {
+  width: 100%;
+}
+.contact {
+  background-color: #1d304d3f;
+}

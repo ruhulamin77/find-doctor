@@ -35,7 +35,7 @@ const Footer = () => {
 
                             </ul>
                             <ul className="ul-right">
-                                <li><Link to="/home"><i className="fas fa-angle-right"></i> Become a Teacher</Link></li>
+                                <li><Link to="/home"><i className="fas fa-angle-right"></i> Become a Doctor</Link></li>
                                 <li><Link to="/home"><i className="fas fa-angle-right"></i> Maintenance</Link></li>
                                 <li><Link to="/home"><i className="fas fa-angle-right"></i> Language Packs</Link></li>
                                 <li><Link to="/home"><i className="fas fa-angle-right"></i> LearnPress</Link></li>
@@ -49,23 +49,18 @@ const Footer = () => {
                         <div>
                             <div className="d-flex postImage1">
                                 <img src={postImage1} alt="" />
-                                <p>We recently arranged a big programming contest for all of our alumni students. </p>
+                                <p>Doing blogger outreach or influencer marketing and want to connect with new</p>
 
                             </div>
                             <div className="d-flex postImage2">
                                 <img src={postImage2} alt="" />
-                                <p>Another BootCamp for all of our current student of all subjects.</p>
+                                <p>Feedspot media database has over 100k Influential Bloggers in over 1500 niche categories</p>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </Container>
-            <div className="copyright p-3">
-                <Container>
-                    Copyright © 2021 | Designed by Ruhul Amin
-                </Container>
-            </div>
 
         </footer>
     );

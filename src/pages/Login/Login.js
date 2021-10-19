@@ -6,7 +6,7 @@ import useAuth from '../../hooks/useAuth';
 const Login = () => {
     const { signInUsingGoogle, handleEmailChange, handlePasswordChange, error, success, handleLoginUsingEmailAndPassword } = useAuth();
     return (
-        <div className="login-container">
+        <div className="login-container my-5">
             <div>
                 <h3>Please Login</h3>
                 <form onSubmit={handleLoginUsingEmailAndPassword} className="login-form">

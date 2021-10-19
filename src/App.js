@@ -16,6 +16,9 @@ import AuthProvider from './context/AuthProvider';
 import PrivetRoute from './components/PrivetRoute/PrivetRoute';
 import Doctors from './components/Doctors/Doctors';
 import Register from './pages/Register/Register';
+import About from './pages/About/About';
+import Contact from './pages/Contact/Contact';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -36,10 +39,10 @@ function App() {
             <Booking></Booking>
           </PrivetRoute>
           <Route path="/about">
-
+            <About></About>
           </Route>
           <Route path="/contact">
-
+            <Contact></Contact>
           </Route>
           <Route path="/register">
             <Register></Register>
@@ -51,6 +54,7 @@ function App() {
             <NotFound></NotFound>
           </Route>
         </Switch>
+        <Footer></Footer>
       </Router>
     </AuthProvider>
   );

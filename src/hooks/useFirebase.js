@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializationAuthentication from "../firebase/firebase.init";
 
@@ -6,6 +6,7 @@ initializationAuthentication();
 
 const useFirebase = () => {
     const [user, setUser] = useState({})
+    const [name, setName] = useState('')
     const [doctors, setDoctors] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [email, setEmail] = useState('')
@@ -67,6 +68,7 @@ const useFirebase = () => {
                 const user = result.user;
                 console.log(user);
                 setError('')
+                updateUserName()
                 // setSuccess('Registration Successfull')
 
             })
@@ -91,9 +93,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 setError('')
-                // setSuccess('Login Successful')
-
-
+                console.log(user);
             })
             .then(() => {
                 setIsLogin(true)
@@ -104,6 +104,21 @@ const useFirebase = () => {
             });
     }
 
+    const updateUserName = () => {
+        updateProfile(auth.currentUser, { displayName: name })
+            .then(() => {
+                // Profile updated!
+                // ...
+            }).catch((error) => {
+                // An error occurred
+                // ...
+            });
+    }
+
+    const handleNameChange = (e) => {
+        console.log(e.target.value);
+        setName(e.target.value)
+    }
     const handleEmailChange = (e) => {
         console.log(e.target.value);
         setEmail(e.target.value)
@@ -123,6 +138,7 @@ const useFirebase = () => {
         signInUsingGoogle,
         logOut,
         handleEmailChange,
+        handleNameChange,
         handlePasswordChange,
         handleRegistration,
         error,
