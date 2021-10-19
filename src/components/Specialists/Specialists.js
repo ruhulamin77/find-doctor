@@ -4,7 +4,7 @@ import './Specialists.css'
 import { Link } from 'react-router-dom';
 
 const Specialists = (props) => {
-    const { name, description, img, id } = props.special
+    const { name, description, img } = props.special
     return (
         <div>
             <Col className="single-doctor g-5">

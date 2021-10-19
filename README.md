@@ -1,6 +1,6 @@
-# Project Name: Find Doctor
+# Project Name: Find-Doctor
 
-This project hostting and live at firebase in [This Link](https://find-doctor-91fbc.web.app/).
+This project hosting and live at firebase in [This Link](https://find-doctor-91fbc.web.app/).
 
 ## Used Languages
 

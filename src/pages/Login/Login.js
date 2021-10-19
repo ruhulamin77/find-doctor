@@ -8,7 +8,7 @@ const Login = () => {
     return (
         <div className="login-container my-5">
             <div>
-                <h3>Please Login</h3>
+                <h3 className="text-info mb-3">Please Login</h3>
                 <form onSubmit={handleLoginUsingEmailAndPassword} className="login-form">
                     <input onBlur={handleEmailChange} type="email" name="" id="" placeholder="Enter your email" required />
                     <input onBlur={handlePasswordChange} type="password" name="" id="" placeholder="Enter your password" required />
@@ -21,7 +21,7 @@ const Login = () => {
 
                 ---------or----------
                 <br />
-                <button onClick={signInUsingGoogle} className="btn btn-outline-info">Sign in with google</button>
+                <button onClick={signInUsingGoogle} className="btn btn-info">Sign in with google</button>
 
             </div>
         </div>

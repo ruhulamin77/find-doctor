@@ -14,7 +14,7 @@ const Register = () => {
         <Container>
             <div className="register-container my-5">
                 <div>
-                    <h3>Please Register</h3>
+                    <h3 className="text-info mb-3">Please Register</h3>
                     <form onSubmit={handleRegistration} className="register-form">
                         <input type="text" placeholder="Enter your name" onBlur={handleNameChange} />
                         <input onBlur={handleEmailChange} type="email" name="" id="" placeholder="Enter your email" required />
@@ -26,7 +26,7 @@ const Register = () => {
                     {success && <p className="text-success">{success}</p>}
                     ---------or----------
                     <br />
-                    <button onClick={signInUsingGoogle} className="btn btn-outline-info">Sign in with google</button>
+                    <button onClick={signInUsingGoogle} className="btn btn-info">Sign in with google</button>
                 </div>
             </div>
 

@@ -9,10 +9,10 @@ const About = () => {
     return (
         <Container className="my-5">
 
-            <Row className="my-5">
-                <h2 className="choose-text my-5">WE ARE SPECIALISTS IN</h2>
+            <Row className="my-5 ">
+                <h2 className="choose-text ">WE ARE SPECIALISTS IN</h2>
 
-                <Row lg={3} md={2} xs={1} gap={3} className="doctors-container ">
+                <Row lg={3} md={2} xs={1} className="doctors-container g-5">
                     {
                         specialist?.map(special => <Specialists
                             key={special.id}
@@ -20,9 +20,10 @@ const About = () => {
                     }
                 </Row>
             </Row>
+            <hr />
             <Row className="my-5">
                 <Col >
-                    <h2>OUR SERVICES RANGE</h2>
+                    <h2 className="text-warning mb-5">OUR SERVICES RANGE</h2>
                     <p>
                         Surgery is a medical or dental specialty that uses operative manual and instrumental techniques on a person to investigate or treat a pathological condition such as a disease or injury, to help improve bodily function, appearance, or to repair unwanted ruptured areas
                     </p>
