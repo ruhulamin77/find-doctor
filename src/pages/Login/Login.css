@@ -2,8 +2,32 @@
   display: flex;
   justify-content: center;
 }
-
-.login-form input {
+.login-text {
+  color: #12c5c3;
+}
+form input {
   display: block;
   margin-bottom: 20px;
+  outline: 0;
+  border: 0;
+  padding: 7px;
+  border-bottom: 1px solid gray;
+  width: 300px;
+}
+.btn-form {
+  background-color: #12c5c3;
+  color: white;
+  font-weight: 500;
+}
+.btn-google {
+  background-color: #f16539;
+  color: white;
+  padding: 7px;
+  outline: 0;
+  border: 0;
+}
+
+.or {
+  color: #12c5c3;
+  font-weight: 700;
 }

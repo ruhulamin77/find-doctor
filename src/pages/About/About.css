@@ -1,0 +1,19 @@
+.about-container {
+  background-color: #f6f9ff;
+}
+.service-container {
+  display: flex;
+  align-items: center;
+  background-color: rgba(240, 235, 235, 0.705);
+}
+.price-container {
+  background-color: rgba(226, 224, 224, 0.904);
+  border-radius: 15px;
+}
+.service-container p {
+  color: #777777;
+}
+.service-text,
+.price-text {
+  color: #f16539;
+}

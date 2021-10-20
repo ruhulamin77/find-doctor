@@ -1,6 +1,6 @@
 .not-found {
-  background-color: #b8bec7;
-  height: 100vh;
+  background-color: #f6f9ff;
+  height: 80vh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -9,16 +9,17 @@
 }
 .errorcode {
   font-family: "Creepster", cursive;
-  color: white;
+  color: #f16539;
   text-align: center;
   font-size: 6em;
   letter-spacing: 0.1em;
 }
 .errortext {
-  color: #fbd130;
+  color: #12c5c3;
   text-align: center;
   text-transform: uppercase;
   font-size: 1.8em;
+  margin-bottom: 30px;
 }
 .btn-back {
   text-transform: uppercase;

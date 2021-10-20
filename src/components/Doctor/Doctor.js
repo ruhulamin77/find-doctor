@@ -1,4 +1,5 @@
 import React from 'react';
+import './Doctor.css'
 import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
@@ -16,7 +17,7 @@ const Doctor = (props) => {
                             {description}
                         </Card.Text>
                         <Link to={`/booking/${id}`}>
-                            <button className="btn btn-outline-info" >BOOK NOW</button>
+                            <button className="btn-book" >BOOK NOW</button>
                         </Link>
                     </Card.Body>
                 </Card>

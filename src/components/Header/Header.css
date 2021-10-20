@@ -1,0 +1,29 @@
+.menu-item {
+  font-size: 18px;
+  color: #12c5c3;
+  font-weight: 400;
+  text-decoration: none;
+  margin-right: 15px;
+}
+.menu-item:hover {
+  color: #f16539;
+}
+.user-name {
+  font-weight: bold;
+  text-decoration: none;
+  color: #f16539;
+}
+.btn-logout {
+  background-color: #f16539;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+.btn-login {
+  background-color: #12c5c3;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 10px;
+}

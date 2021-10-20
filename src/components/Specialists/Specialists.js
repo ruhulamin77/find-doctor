@@ -7,15 +7,15 @@ const Specialists = (props) => {
     const { name, description, img } = props.special
     return (
         <div>
-            <Col className="single-doctor g-5">
-                <Card className="p-2 card">
+            <Col className="specialists">
+                <Card className="p-2 specialists-card">
                     <Card.Img variant="top border img" src={img} />
                     <Card.Body>
-                        <Card.Title>{name}</Card.Title>
-                        <Card.Text>
-                            {description.slice(0, 50)}
+                        <b className="card-name">{name}</b>
+                        <Card.Text className="card-text">
+                            {description.slice(0, 90)}
                         </Card.Text>
-                        <button className="btn btn-warning" >View More</button>
+                        <button className="btn-specialists" >View More</button>
                     </Card.Body>
                 </Card>
             </Col>

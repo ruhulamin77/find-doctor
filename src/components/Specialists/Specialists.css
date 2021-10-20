@@ -1,3 +1,35 @@
-.card {
-  max-height: 600px;
+.specialists {
+  overflow: hidden;
+}
+.specialists-card {
+  min-height: 480px;
+  margin-bottom: 30px;
+}
+.specialists-text {
+  color: #f16539;
+  text-align: center;
+}
+.specialists .img {
+  transition: 0.5s;
+}
+.specialists .img:hover {
+  transform: scale(1.2);
+}
+.card-name {
+  color: #f16539;
+  line-height: 40px;
+  font-size: 19px;
+  display: block;
+}
+.btn-specialists {
+  background-color: #12c5c3;
+  color: white;
+  font-size: 15px;
+  padding: 7px 15px;
+  border-radius: 50px;
+  outline: 0;
+  border: 0;
+}
+.btn-specialists:hover {
+  background-color: #f16539;
 }

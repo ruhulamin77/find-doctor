@@ -10,3 +10,13 @@
 .contact {
   background-color: #1d304d3f;
 }
+.btn-book {
+  background-color: #12c5c3;
+  border: 0;
+  color: white;
+  padding: 5px 10px;
+  transition: 0.2s;
+}
+.btn-book:hover {
+  background-color: #f16539;
+}

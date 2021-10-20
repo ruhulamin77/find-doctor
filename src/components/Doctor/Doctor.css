@@ -1,6 +1,19 @@
+.single-doctor {
+  overflow: hidden;
+}
+.single-doctor .img {
+  transition: 0.5s;
+}
 .single-doctor .img:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 .single-doctor .btn-book {
   background-color: #12c5c3;
+  border: 0;
+  color: white;
+  padding: 5px 10px;
+  transition: 0.2s;
+}
+.single-doctor .btn-book:hover {
+  background-color: #f16539;
 }

@@ -4,7 +4,7 @@ import logo from '../../images/logo.png'
 import { Container } from 'react-bootstrap';
 import postImage1 from '../../images/logo.png'
 import postImage2 from '../../images/logo.png'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -46,16 +46,13 @@ const Footer = () => {
 
                     <div className="col-lg-4 col-md-4 col-sm-12">
                         <h3 className="mb-4 text-white">RECENT POST</h3>
-                        <div>
-                            <div className="d-flex postImage1">
-                                <img src={postImage1} alt="" />
-                                <p>Doing blogger outreach or influencer marketing and want to connect with new</p>
-
-                            </div>
-                            <div className="d-flex postImage2">
-                                <img src={postImage2} alt="" />
-                                <p>Feedspot media database has over 100k Influential Bloggers in over 1500 niche categories</p>
-                            </div>
+                        <div className="recent-post">
+                            <NavLink to="/home">
+                                <div className=" postImage1">
+                                    <img src={postImage1} alt="" />
+                                    <p>Doing blogger outreach or influencer marketing and want to connect with new</p>
+                                </div>
+                            </NavLink>
                         </div>
                     </div>
 

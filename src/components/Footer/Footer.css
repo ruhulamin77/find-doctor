@@ -6,7 +6,7 @@ footer {
 .footer-container {
   text-align: left;
   display: flex;
-  padding: 50px;
+  padding: 20px;
 }
 .footer-logo {
   width: 150px;
@@ -27,23 +27,21 @@ footer {
 .usefull-links ul li {
   list-style: none;
 }
+.recent-post a,
 .usefull-links ul li a {
   text-decoration: none;
   color: #ffffff;
 }
+.recent-post a:hover,
 .usefull-links ul li a:hover {
-  /* color: #0fb375; */
-  color: orange;
+  color: #f26438;
 }
 .postImage1 img,
 .postImage2 img {
-  width: 80px;
-  height: 60px;
+  width: 100px;
+  height: 40px;
   border-radius: 5px;
   margin-right: 20px;
   padding-top: 10px;
   border: 1px solid white;
-}
-.copyright {
-  background-color: #192941;
 }

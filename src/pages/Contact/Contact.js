@@ -2,14 +2,18 @@
 import React from 'react';
 import './Contact.css'
 import { Button, Container, Form } from 'react-bootstrap';
+import contactImg from '../../images/TaeAugust11.jpg'
 
 const Contact = () => {
     return (
         <div>
             <Container>
+
                 <div className="contact-container row mx-3 my-5">
+                    <h3 className="choose-text mt-5">CONTACT US</h3>
                     <div className="contact-img col-md-3">
-                        <h1>Contact Us</h1>
+                        <img src={contactImg} alt="" />
+
                     </div>
                     <div className="contact-form col-md-7 my-5">
                         <Form className="">
@@ -26,7 +30,7 @@ const Contact = () => {
                                 <Form.Label>Your comments/feedback write here</Form.Label>
                                 <Form.Control as="textarea" rows={3} />
                             </Form.Group>
-                            <Button type="submit" className="btn btn-warning">Submit</Button>
+                            <button type="submit" className="btn-book" >Submit</button>
                         </Form>
                     </div>
                 </div>

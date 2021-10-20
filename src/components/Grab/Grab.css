@@ -1,0 +1,44 @@
+.grab {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/src/images/attractive-african-woman-enjoying-face-massage-spa-salon.jpg");
+  background-size: cover;
+  /* background-attachment: fixed; */
+  height: 70vh;
+  background-repeat: no-repeat;
+  padding: 50px;
+  align-items: center;
+  display: flex;
+}
+.grab input {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 50px;
+  border: 0;
+  outline: 0;
+  width: 80%;
+  display: block;
+}
+.grab p {
+  font-size: 20px;
+  color: rgb(170, 168, 168);
+}
+.text-grab {
+  color: rgb(170, 168, 168);
+}
+.btn-grab {
+  background-color: #f26438;
+  color: white;
+  padding: 20px 40px;
+}
+
+@media only screen and (max-width: 668px) {
+  .grab input {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 50px;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    display: block;
+  }
+}

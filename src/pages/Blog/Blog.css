@@ -1,0 +1,26 @@
+.blog-info {
+  display: flex;
+  align-items: center;
+}
+.blog-info img {
+  border-radius: 100px;
+}
+.blog-info div,
+img,
+p {
+  margin-right: 10px;
+}
+.see-more {
+  color: #12c5c3;
+  font-weight: bold;
+}
+.blog-container {
+  background-color: #f6f9ff;
+}
+.blog-container img {
+  overflow: hidden;
+  transition: 0.5s;
+}
+.blog-container img:hover {
+  transform: scale(0.9);
+}

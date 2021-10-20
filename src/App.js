@@ -19,6 +19,7 @@ import Register from './pages/Register/Register';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import Blog from './pages/Blog/Blog';
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
           </PrivetRoute>
           <Route path="/about">
             <About></About>
+          </Route>
+          <Route path="/blog">
+            <Blog></Blog>
           </Route>
           <Route path="/contact">
             <Contact></Contact>
