@@ -1,14 +1,12 @@
-import logo from './logo.svg';
+
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import NotFound from './pages/NotFound/NotFound';
 import Home from './pages/Home/Home';
-import Banner from './components/Banner/Banner';
 import Header from './components/Header/Header';
 import Booking from './pages/Booking/Booking';
 import Login from './pages/Login/Login';

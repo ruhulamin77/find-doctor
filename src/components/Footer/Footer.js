@@ -3,7 +3,6 @@ import './Footer.css'
 import logo from '../../images/logo.png'
 import { Container } from 'react-bootstrap';
 import postImage1 from '../../images/logo.png'
-import postImage2 from '../../images/logo.png'
 import { Link, NavLink } from 'react-router-dom';
 
 const Footer = () => {

@@ -24,7 +24,7 @@ const Register = () => {
                     {error && <p className="text-danger">{error}</p>}
                     {successRegistration && <p className="text-success">{successRegistration}</p>}
                     <p className="or">OR</p>
-                    <button onClick={signInUsingGoogle} className="btn-google"><i class="fab fa-google"></i> Sign in with google</button>
+                    <button onClick={signInUsingGoogle} className="btn-google"><i className="fab fa-google"></i> Sign in with google</button>
                 </div>
             </div>
         </Container>

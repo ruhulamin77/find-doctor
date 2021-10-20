@@ -19,7 +19,7 @@ const Login = () => {
                     <p>New in this site? <Link to="/register">Please Register</Link></p>
                 </form>
                 <p className="or">OR</p>
-                <button onClick={signInUsingGoogle} className="btn-google"><i class="fab fa-google"></i> Sign in with google</button>
+                <button onClick={signInUsingGoogle} className="btn-google"><i className="fab fa-google"></i> Sign in with google</button>
 
             </div>
         </div>

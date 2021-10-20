@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import './Specialists.css'
-import { Link } from 'react-router-dom';
+
 
 const Specialists = (props) => {
     const { name, description, img } = props.special

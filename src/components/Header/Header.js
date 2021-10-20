@@ -19,21 +19,21 @@ const Header = () => {
 
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
-                        <NavLink className="Nav_link"
+                        <NavLink className="Nav_link menu-item"
                             activeClassName="activeRoute"
-                            activeStyle={{ color: '#f16539' }} as={Link} className="menu-item" to="/home">Home</NavLink>
-                        <NavLink className="Nav_link"
+                            activeStyle={{ color: '#f16539' }} as={Link} to="/home">Home</NavLink>
+                        <NavLink className="Nav_link menu-item"
                             activeClassName="activeRoute"
-                            activeStyle={{ color: '#f16539' }} as={Link} className="menu-item" to="/doctors">Doctors</NavLink>
-                        <NavLink className="Nav_link"
+                            activeStyle={{ color: '#f16539' }} as={Link} to="/doctors">Doctors</NavLink>
+                        <NavLink className="Nav_link menu-item"
                             activeClassName="activeRoute"
-                            activeStyle={{ color: '#f16539' }} as={Link} className="menu-item" to="/about">About</NavLink>
-                        <NavLink className="Nav_link"
+                            activeStyle={{ color: '#f16539' }} as={Link} to="/about">About</NavLink>
+                        <NavLink className="Nav_link menu-item"
                             activeClassName="activeRoute"
-                            activeStyle={{ color: '#f16539' }} as={Link} className="menu-item" to="/blog">Blog</NavLink>
-                        <NavLink className="Nav_link"
+                            activeStyle={{ color: '#f16539' }} as={Link} to="/blog">Blog</NavLink>
+                        <NavLink className="Nav_link menu-item"
                             activeClassName="activeRoute"
-                            activeStyle={{ color: '#f16539' }} as={Link} className="menu-item" to="/contact">Contact</NavLink>
+                            activeStyle={{ color: '#f16539' }} as={Link} to="/contact">Contact</NavLink>
 
                         {user?.email ? <button onClick={logOut} variant="warning" size="sm" className="mx-3 btn-logout">Logout</button>
                             :

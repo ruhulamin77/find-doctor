@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './Contact.css'
-import { Button, Container, Form } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 import contactImg from '../../images/TaeAugust11.jpg'
 
 const Contact = () => {
