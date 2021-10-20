@@ -1,8 +1,8 @@
 import React from 'react';
 import './Doctor.css'
-import { Button, Card, Col } from 'react-bootstrap';
+import { Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Footer from '../Footer/Footer';
+
 
 const Doctor = (props) => {
     const { name, description, img, id } = props.doctor

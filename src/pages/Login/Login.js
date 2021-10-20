@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const { signInUsingGoogle, handleEmailChange, handlePasswordChange, error, success, handleLoginUsingEmailAndPassword } = useAuth();
+    const { signInUsingGoogle, handleEmailChange, handlePasswordChange, error,
+        successLogin, handleLoginUsingEmailAndPassword } = useAuth();
     return (
         <div className="login-container my-5">
             <div>
@@ -14,7 +15,7 @@ const Login = () => {
                     <input onBlur={handlePasswordChange} type="password" name="" id="" placeholder="Enter your password" required />
                     <input type="submit" className="btn-form" value="Login" />
                     {error && <p className="text-danger">{error}</p>}
-                    {success && <p className="text-success">{success}</p>}
+                    {successLogin && <p className="text-success">{successLogin}</p>}
                     <p>New in this site? <Link to="/register">Please Register</Link></p>
                 </form>
                 <p className="or">OR</p>

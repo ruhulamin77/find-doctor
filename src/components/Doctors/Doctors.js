@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Doctors.css'
 import { Container, Row } from 'react-bootstrap';
 import Doctor from '../Doctor/Doctor';

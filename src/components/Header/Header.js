@@ -8,7 +8,7 @@ import useAuth from '../../hooks/useAuth';
 import logo from '../../images/logo.png'
 
 const Header = () => {
-    const { user, logOut, isLogin } = useAuth();
+    const { user, logOut } = useAuth();
 
     return (
         <div>

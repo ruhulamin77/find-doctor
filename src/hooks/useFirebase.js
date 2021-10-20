@@ -1,6 +1,7 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializationAuthentication from "../firebase/firebase.init";
+import Swal from 'sweetalert2'
 
 initializationAuthentication();
 
@@ -13,8 +14,9 @@ const useFirebase = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    const [success, setSuccess] = useState('')
-    const [isLogin, setIsLogin] = useState(false);
+    const [successRegistration, setSuccessRegistration] = useState('')
+    const [successLogin, setSuccessLogin] = useState('')
+
 
     const auth = getAuth();
 
@@ -31,19 +33,6 @@ const useFirebase = () => {
             .then(data => setSpecialist(data))
     }, []);
 
-    const signInUsingGoogle = () => {
-        setIsLoading(true)
-        const googleProvider = new GoogleAuthProvider();
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user)
-            })
-            .then(() => {
-                setIsLogin(true)
-            })
-            .finally(() => setIsLoading(false));
-    };
-
     // observer of states
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
@@ -57,60 +46,44 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, []);
 
-    // logging out
-    const logOut = () => {
-        setIsLogin(false)
-        setIsLoading(true)
-        signOut(auth)
-            .then(() => { })
-            .finally(() => setIsLoading(false));
-    };
 
     const handleRegistration = (e) => {
         e.preventDefault()
-
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 // Signed in 
                 const user = result.user;
-                console.log(user);
                 setError('')
                 updateUserName()
                 window.location.reload()
-                // setSuccess('Registration Successfull')
-
-            })
-            .then(() => {
-                setIsLogin(false)
-            })
-            .then(() => {
-                setEmail('')
+                setSuccessRegistration('Registration Successfull')
+                regModal()
             })
             .catch((error) => {
                 const errorMessage = error.message;
                 console.log(errorMessage);
                 setError(errorMessage)
-                setSuccess('')
+                setSuccessRegistration('')
             });
     }
 
-    const handleLoginUsingEmailAndPassword = (e) => {
 
+    const handleLoginUsingEmailAndPassword = (e) => {
         e.preventDefault()
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 const user = result.user;
                 setError('')
-                console.log(user);
-            })
-            .then(() => {
-                setIsLogin(true)
+                setSuccessLogin('Login Successfull')
+                loginModal()
             })
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage)
+                errorModal()
             });
     }
+
 
     const updateUserName = () => {
         updateProfile(auth.currentUser, { displayName: name })
@@ -121,6 +94,71 @@ const useFirebase = () => {
                 // An error occurred
                 // ...
             });
+    }
+
+
+    const signInUsingGoogle = () => {
+        setIsLoading(true)
+        const googleProvider = new GoogleAuthProvider();
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                setUser(result.user)
+                loginModal();
+            })
+            .catch(error => {
+                setError(error.message)
+                errorModal()
+            })
+            .finally(() => setIsLoading(false));
+    };
+
+
+    // logging out
+    const logOut = () => {
+        setIsLoading(true)
+        signOut(auth)
+            .then(() => {
+                logoutModal()
+            })
+            .finally(() => setIsLoading(false));
+    };
+
+
+    const regModal = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Registration Successfull',
+            showConfirmButton: false,
+            timer: 2000
+        })
+    }
+    const loginModal = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Login Successful',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+    const logoutModal = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Logout Successful',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+
+    const errorModal = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Sign in failed ! Please try again later',
+        })
     }
 
     const handleNameChange = (e) => {
@@ -150,11 +188,10 @@ const useFirebase = () => {
         handlePasswordChange,
         handleRegistration,
         error,
-        success,
+        successRegistration,
+        successLogin,
         handleLoginUsingEmailAndPassword,
-        isLogin,
         specialist
-
     }
 }
 
