@@ -7,8 +7,6 @@ import './Register.css'
 
 const Register = () => {
     const { signInUsingGoogle, handleEmailChange, handlePasswordChange, handleRegistration, error, successRegistration, user, handleNameChange } = useAuth()
-
-
     return (
         <Container>
             <div className="register-container my-5">
