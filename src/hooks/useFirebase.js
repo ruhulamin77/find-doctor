@@ -1,198 +1,199 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializationAuthentication from "../firebase/firebase.init";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 initializationAuthentication();
 
 const useFirebase = () => {
-    const [user, setUser] = useState({})
-    const [name, setName] = useState('')
-    const [doctors, setDoctors] = useState([])
-    const [specialist, setSpecialist] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
-    const [successRegistration, setSuccessRegistration] = useState('')
-    const [successLogin, setSuccessLogin] = useState('')
+  const [user, setUser] = useState({});
+  const [name, setName] = useState("");
+  const [doctors, setDoctors] = useState([]);
+  const [specialist, setSpecialist] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [successRegistration, setSuccessRegistration] = useState("");
+  const [successLogin, setSuccessLogin] = useState("");
 
+  const auth = getAuth();
 
-    const auth = getAuth();
+  //  loading all data from database
+  useEffect(() => {
+    fetch("/doctorsData.json")
+      .then((res) => res.json())
+      .then((data) => setDoctors(data));
+  }, []);
 
-    //  loading all data from database
-    useEffect(() => {
-        fetch('/doctorsData.json')
-            .then(res => res.json())
-            .then(data => setDoctors(data))
-    }, []);
+  useEffect(() => {
+    fetch("/doctorsData2.json")
+      .then((res) => res.json())
+      .then((data) => setSpecialist(data));
+  }, []);
 
-    useEffect(() => {
-        fetch('/doctorsData2.json')
-            .then(res => res.json())
-            .then(data => setSpecialist(data))
-    }, []);
+  // observer of states
+  useEffect(() => {
+    const unsubscribed = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser({});
+      }
+      setIsLoading(false);
+    });
+    return () => unsubscribed;
+  }, []);
 
-    // observer of states
-    useEffect(() => {
-        const unsubscribed = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-            } else {
-                setUser({})
-            }
-            setIsLoading(false)
-        });
-        return () => unsubscribed;
-    }, []);
+  const handleRegistration = (e) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        // Signed in user
+        const user = result.user;
+        setError("");
+        updateUserName();
+        window.location.reload();
+        setSuccessRegistration("Registration Successfull");
+        regModal();
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        setError(errorMessage);
+        setSuccessRegistration("");
+      });
+  };
 
+  const handleLoginUsingEmailAndPassword = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        const user = result.user;
+        setError("");
+        setSuccessLogin("Login Successfull");
+        loginModal();
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+        errorModal();
+      });
+  };
 
-    const handleRegistration = (e) => {
-        e.preventDefault()
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((result) => {
-                // Signed in 
-                const user = result.user;
-                setError('')
-                updateUserName()
-                window.location.reload()
-                setSuccessRegistration('Registration Successfull')
-                regModal()
-            })
-            .catch((error) => {
-                const errorMessage = error.message;
-                console.log(errorMessage);
-                setError(errorMessage)
-                setSuccessRegistration('')
-            });
-    }
+  const updateUserName = () => {
+    updateProfile(auth.currentUser, { displayName: name })
+      .then(() => {
+        // Profile updated!
+        // ...
+      })
+      .catch((error) => {
+        // An error occurred
+        // ...
+      });
+  };
 
+  const signInUsingGoogle = () => {
+    setIsLoading(true);
+    const googleProvider = new GoogleAuthProvider();
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        setUser(result.user);
+        loginModal();
+      })
+      .catch((error) => {
+        setError(error.message);
+        errorModal();
+      })
+      .finally(() => setIsLoading(false));
+  };
 
-    const handleLoginUsingEmailAndPassword = (e) => {
-        e.preventDefault()
-        signInWithEmailAndPassword(auth, email, password)
-            .then((result) => {
-                const user = result.user;
-                setError('')
-                setSuccessLogin('Login Successfull')
-                loginModal()
-            })
-            .catch((error) => {
-                const errorMessage = error.message;
-                setError(errorMessage)
-                errorModal()
-            });
-    }
+  // logging out
+  const logOut = () => {
+    setIsLoading(true);
+    signOut(auth)
+      .then(() => {
+        logoutModal();
+      })
+      .finally(() => setIsLoading(false));
+  };
 
+  const regModal = () => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Registration Successfull",
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  };
+  const loginModal = () => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Login Successful",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+  const logoutModal = () => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Logout Successful",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
 
-    const updateUserName = () => {
-        updateProfile(auth.currentUser, { displayName: name })
-            .then(() => {
-                // Profile updated!
-                // ...
-            }).catch((error) => {
-                // An error occurred
-                // ...
-            });
-    }
+  const errorModal = () => {
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: "Oops...",
+      text: "Sign in failed ! Please try again later",
+    });
+  };
 
+  const handleNameChange = (e) => {
+    console.log(e.target.value);
+    setName(e.target.value);
+  };
+  const handleEmailChange = (e) => {
+    console.log(e.target.value);
+    setEmail(e.target.value);
+  };
+  const handlePasswordChange = (e) => {
+    console.log(e.target.value);
+    setPassword(e.target.value);
+  };
 
-    const signInUsingGoogle = () => {
-        setIsLoading(true)
-        const googleProvider = new GoogleAuthProvider();
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user)
-                loginModal();
-            })
-            .catch(error => {
-                setError(error.message)
-                errorModal()
-            })
-            .finally(() => setIsLoading(false));
-    };
-
-
-    // logging out
-    const logOut = () => {
-        setIsLoading(true)
-        signOut(auth)
-            .then(() => {
-                logoutModal()
-            })
-            .finally(() => setIsLoading(false));
-    };
-
-
-    const regModal = () => {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Registration Successfull',
-            showConfirmButton: false,
-            timer: 2000
-        })
-    }
-    const loginModal = () => {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Login Successful',
-            showConfirmButton: false,
-            timer: 1500
-        })
-    }
-    const logoutModal = () => {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Logout Successful',
-            showConfirmButton: false,
-            timer: 1500
-        })
-    }
-
-    const errorModal = () => {
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Sign in failed ! Please try again later',
-        })
-    }
-
-    const handleNameChange = (e) => {
-        console.log(e.target.value);
-        setName(e.target.value)
-    }
-    const handleEmailChange = (e) => {
-        console.log(e.target.value);
-        setEmail(e.target.value)
-    }
-    const handlePasswordChange = (e) => {
-        console.log(e.target.value);
-        setPassword(e.target.value);
-    }
-
-
-
-    // retuen all functionalities and states
-    return {
-        user,
-        doctors,
-        isLoading,
-        signInUsingGoogle,
-        logOut,
-        handleEmailChange,
-        handleNameChange,
-        handlePasswordChange,
-        handleRegistration,
-        error,
-        successRegistration,
-        successLogin,
-        handleLoginUsingEmailAndPassword,
-        specialist
-    }
-}
+  // retuen all functionalities and states
+  return {
+    user,
+    doctors,
+    isLoading,
+    signInUsingGoogle,
+    logOut,
+    handleEmailChange,
+    handleNameChange,
+    handlePasswordChange,
+    handleRegistration,
+    error,
+    successRegistration,
+    successLogin,
+    handleLoginUsingEmailAndPassword,
+    specialist,
+  };
+};
 
 export default useFirebase;
