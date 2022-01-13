@@ -4,7 +4,7 @@ This project hosting and live at firebase in [This Link](https://find-doctor-91f
 
 ## Used Languages
 
-- HTMML
+- HTML
 - CSS
 - JavaScript
 - React
