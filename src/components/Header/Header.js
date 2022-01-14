@@ -21,7 +21,7 @@ const Header = () => {
             <NavLink
               className="Nav_link menu-item"
               activeClassName="activeRoute"
-              activeStyle={{ color: "#f16539" }}
+              activeStyle={{ color: "#fff", backgroundColor: "#12c5c3" }}
               as={Link}
               to="/home"
             >
@@ -30,7 +30,7 @@ const Header = () => {
             <NavLink
               className="Nav_link menu-item"
               activeClassName="activeRoute"
-              activeStyle={{ color: "#f16539" }}
+              activeStyle={{ color: "#fff", backgroundColor: "#12c5c3" }}
               as={Link}
               to="/doctors"
             >
@@ -39,7 +39,7 @@ const Header = () => {
             <NavLink
               className="Nav_link menu-item"
               activeClassName="activeRoute"
-              activeStyle={{ color: "#f16539" }}
+              activeStyle={{ color: "#fff", backgroundColor: "#12c5c3" }}
               as={Link}
               to="/about"
             >
@@ -48,7 +48,7 @@ const Header = () => {
             <NavLink
               className="Nav_link menu-item"
               activeClassName="activeRoute"
-              activeStyle={{ color: "#f16539" }}
+              activeStyle={{ color: "#fff", backgroundColor: "#12c5c3" }}
               as={Link}
               to="/blog"
             >
@@ -57,7 +57,7 @@ const Header = () => {
             <NavLink
               className="Nav_link menu-item"
               activeClassName="activeRoute"
-              activeStyle={{ color: "#f16539" }}
+              activeStyle={{ color: "#fff", backgroundColor: "#12c5c3" }}
               as={Link}
               to="/contact"
             >

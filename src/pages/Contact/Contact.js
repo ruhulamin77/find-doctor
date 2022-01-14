@@ -9,10 +9,10 @@ const Contact = () => {
       <Container>
         <div className="contact-container row mx-3 my-5">
           <h3 className="choose-text mt-5">CONTACT US</h3>
-          <div className="contact-img col-md-3">
+          <div className="contact-img col-12 col-sm-12 col-md-12 col-lg-6">
             <img src={contactImg} alt="" />
           </div>
-          <div className="contact-form col-md-7 my-5">
+          <div className="contact-form col-12 col-sm-12 col-md-12 col-lg-6 my-5">
             <Form className="">
               <Form.Group
                 className="mb-3"

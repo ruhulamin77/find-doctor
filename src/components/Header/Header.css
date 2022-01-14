@@ -4,9 +4,15 @@
   font-weight: 400;
   text-decoration: none;
   margin-right: 15px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  font-weight: 500;
+  border-radius: 3px;
+  transition: 0.3s;
 }
 .menu-item:hover {
-  color: #f16539;
+  color: #fff;
+  background-color: #12c5c3;
 }
 .user-name {
   font-weight: bold;
