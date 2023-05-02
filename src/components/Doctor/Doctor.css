@@ -3,7 +3,7 @@
 }
 .single-doctor .img {
   transition: 0.5s;
-  margin: 10px 75px;
+  /* margin: 10px 75px; */
   margin-bottom: 20px;
   transform-origin: right;
   clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);
