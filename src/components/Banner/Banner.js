@@ -6,12 +6,12 @@ import './Banner.css';
 const Banner = () => {
   return (
     <div className="banner">
-      <div>
+      <div className="banner-inner">
         <h2 className="banner-heading">
           Search <span>Cosmetic Surgeon</span> & Make an Appointment
         </h2>
         <div className="banner-search">
-          <InputGroup className="mb-3">
+          <InputGroup className="mb-3 search-bar">
             <FormControl
               placeholder="Ex. Name, Specialization ..."
               aria-label="Recipient's username"

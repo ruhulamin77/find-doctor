@@ -8,7 +8,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 30px;
 }
+
 .banner-heading {
   padding-bottom: 50px;
   color: rgb(211, 206, 206);
