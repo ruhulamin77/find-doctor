@@ -1,13 +1,13 @@
-import React from "react";
-import "./Contact.css";
-import { Container, Form } from "react-bootstrap";
-import contactImg from "../../images/TaeAugust11.jpg";
+import React from 'react';
+import './Contact.css';
+import { Container, Form } from 'react-bootstrap';
+import contactImg from '../../images/contact.svg';
 
 const Contact = () => {
   return (
     <div>
       <Container>
-        <div className="contact-container row mx-3 my-5">
+        <div className="contact-container row mx-3 ">
           <h3 className="choose-text mt-5">CONTACT US</h3>
           <div className="contact-img col-12 col-sm-12 col-md-12 col-lg-6">
             <img src={contactImg} alt="" />

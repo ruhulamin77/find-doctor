@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #f6f9ff;
+  /* background-color: #f6f9ff; */
 }
 .contact-img img {
   width: 100%;
@@ -11,7 +11,7 @@
   background-color: #1d304d3f;
 }
 .btn-book {
-  background-color: #12c5c3;
+  background-color: #0db8b5;
   border: 0;
   color: white;
   padding: 10px 20px;

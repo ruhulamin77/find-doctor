@@ -1,9 +1,9 @@
-import './Header.css';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import logo from '../../images/logo.png';
+import './Header.css';
 
 const Header = () => {
   const { user, logOut } = useAuth();
@@ -21,7 +21,7 @@ const Header = () => {
             <NavLink
               className="Nav_link menu-item"
               activeClassName="activeRoute"
-              activeStyle={{ color: '#fff', backgroundColor: '#12c5c3' }}
+              activeStyle={{ color: '#fff', backgroundColor: '#0db8b5' }}
               as={Link}
               to="/home"
             >
@@ -30,7 +30,7 @@ const Header = () => {
             <NavLink
               className="Nav_link menu-item"
               activeClassName="activeRoute"
-              activeStyle={{ color: '#fff', backgroundColor: '#12c5c3' }}
+              activeStyle={{ color: '#fff', backgroundColor: '#0db8b5' }}
               as={Link}
               to="/doctors"
             >
@@ -39,7 +39,7 @@ const Header = () => {
             <NavLink
               className="Nav_link menu-item"
               activeClassName="activeRoute"
-              activeStyle={{ color: '#fff', backgroundColor: '#12c5c3' }}
+              activeStyle={{ color: '#fff', backgroundColor: '#0db8b5' }}
               as={Link}
               to="/about"
             >
@@ -48,7 +48,7 @@ const Header = () => {
             <NavLink
               className="Nav_link menu-item"
               activeClassName="activeRoute"
-              activeStyle={{ color: '#fff', backgroundColor: '#12c5c3' }}
+              activeStyle={{ color: '#fff', backgroundColor: '#0db8b5' }}
               as={Link}
               to="/blog"
             >
@@ -57,7 +57,7 @@ const Header = () => {
             <NavLink
               className="Nav_link menu-item"
               activeClassName="activeRoute"
-              activeStyle={{ color: '#fff', backgroundColor: '#12c5c3' }}
+              activeStyle={{ color: '#fff', backgroundColor: '#0db8b5' }}
               as={Link}
               to="/contact"
             >

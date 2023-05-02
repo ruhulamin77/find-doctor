@@ -5,16 +5,14 @@ import About from '../About/About';
 import Grab from '../../components/Grab/Grab';
 
 const Home = () => {
-    return (
-        <div>
-            <Banner></Banner>
-            <Doctors></Doctors>
-            <hr />
-            <About></About>
-            <Grab></Grab>
-
-        </div>
-    );
+  return (
+    <div>
+      <Banner></Banner>
+      <Doctors></Doctors>
+      <About></About>
+      <Grab></Grab>
+    </div>
+  );
 };
 
 export default Home;

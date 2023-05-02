@@ -8,14 +8,14 @@
   align-items: center;
 }
 .errorcode {
-  font-family: "Creepster", cursive;
+  font-family: 'Creepster', cursive;
   color: #f16539;
   text-align: center;
   font-size: 6em;
   letter-spacing: 0.1em;
 }
 .errortext {
-  color: #12c5c3;
+  color: #0db8b5;
   text-align: center;
   text-transform: uppercase;
   font-size: 1.8em;

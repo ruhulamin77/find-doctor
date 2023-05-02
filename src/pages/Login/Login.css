@@ -9,7 +9,7 @@
   flex-direction: column;
 }
 .login-text {
-  color: #12c5c3;
+  color: #0db8b5;
 }
 form input {
   display: block;
@@ -21,7 +21,7 @@ form input {
   width: 300px;
 }
 .btn-form {
-  background-color: #12c5c3;
+  background-color: #0db8b5;
   color: white;
   font-weight: 500;
 }
@@ -34,6 +34,6 @@ form input {
 }
 
 .or {
-  color: #12c5c3;
+  color: #0db8b5;
   font-weight: 700;
 }

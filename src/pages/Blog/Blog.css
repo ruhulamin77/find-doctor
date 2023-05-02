@@ -11,11 +11,11 @@ p {
   margin-right: 10px;
 }
 .see-more {
-  color: #12c5c3;
+  color: #0db8b5;
   font-weight: bold;
 }
 .blog-container {
-  background-color: #f6f9ff;
+  /* background-color: #f6f9ff; */
 }
 .blog-container img {
   overflow: hidden;
