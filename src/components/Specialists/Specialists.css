@@ -2,18 +2,22 @@
   overflow: hidden;
 }
 .specialists-card {
-  min-height: 480px;
+  min-height: 420px;
+  max-height: 420px;
   margin-bottom: 30px;
 }
 .specialists-text {
   color: #f16539;
-  text-align: center;
+  text-align: justify;
 }
 .specialists .img {
   transition: 0.5s;
+  border-radius: 5px;
 }
-.specialists .img:hover {
+.specialists :hover .img {
   transform: scale(1.2);
+  /* transform-origin: bottom; */
+  transform: rotate(10deg);
 }
 .card-name {
   color: #f16539;

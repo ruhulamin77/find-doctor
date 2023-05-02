@@ -3,8 +3,12 @@
 }
 .single-doctor .img {
   transition: 0.5s;
+  margin: 10px 75px;
+  margin-bottom: 20px;
+  transform-origin: right;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);
 }
-.single-doctor .img:hover {
+.single-doctor:hover .img {
   transform: scale(1.2);
 }
 .single-doctor .btn-book {

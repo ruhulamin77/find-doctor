@@ -9,7 +9,7 @@ const Doctor = (props) => {
     <div>
       <Col className="single-doctor g-5">
         <Card className="">
-          <Card.Img variant="top img mb-2" src={img} />
+          <Card.Img variant="top img" src={img} />
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>{description}</Card.Text>
