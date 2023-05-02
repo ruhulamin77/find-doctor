@@ -1,42 +1,42 @@
 import {
-  getAuth,
-  signInWithPopup,
   GoogleAuthProvider,
-  onAuthStateChanged,
-  signOut,
   createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
   updateProfile,
-} from "firebase/auth";
-import { useEffect, useState } from "react";
-import initializationAuthentication from "../firebase/firebase.init";
-import Swal from "sweetalert2";
+} from 'firebase/auth';
+import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
+import initializationAuthentication from '../firebase/firebase.init';
 
 initializationAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [doctors, setDoctors] = useState([]);
   const [specialist, setSpecialist] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [successRegistration, setSuccessRegistration] = useState("");
-  const [successLogin, setSuccessLogin] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [successRegistration, setSuccessRegistration] = useState('');
+  const [successLogin, setSuccessLogin] = useState('');
 
   const auth = getAuth();
 
   //  loading all data from database
   useEffect(() => {
-    fetch("/doctorsData.json")
+    fetch('/doctorsData.json')
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);
 
   useEffect(() => {
-    fetch("/doctorsData2.json")
+    fetch('/doctorsData2.json')
       .then((res) => res.json())
       .then((data) => setSpecialist(data));
   }, []);
@@ -60,27 +60,28 @@ const useFirebase = () => {
       .then((result) => {
         // Signed in user
         const user = result.user;
-        setError("");
+        setError('');
         updateUserName();
         window.location.reload();
-        setSuccessRegistration("Registration Successfull");
+        setSuccessRegistration('Registration Successfull');
         regModal();
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
         setError(errorMessage);
-        setSuccessRegistration("");
+        setSuccessRegistration('');
       });
   };
 
-  const handleLoginUsingEmailAndPassword = (e) => {
-    e.preventDefault();
+  const handleLoginUsingEmailAndPassword = (history, location) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
-        setError("");
-        setSuccessLogin("Login Successfull");
+        const uri = location?.state?.from || '/';
+        history.push(uri);
+        setError('');
+        setSuccessLogin('Login Successfull');
         loginModal();
       })
       .catch((error) => {
@@ -102,11 +103,13 @@ const useFirebase = () => {
       });
   };
 
-  const signInUsingGoogle = () => {
+  const signInUsingGoogle = (location, history) => {
     setIsLoading(true);
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
       .then((result) => {
+        const uri = location?.state?.from || '/';
+        history.push(uri);
         setUser(result.user);
         loginModal();
       })
@@ -129,27 +132,27 @@ const useFirebase = () => {
 
   const regModal = () => {
     Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Registration Successfull",
+      position: 'center',
+      icon: 'success',
+      title: 'Registration Successfull',
       showConfirmButton: false,
       timer: 2000,
     });
   };
   const loginModal = () => {
     Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Login Successful",
+      position: 'center',
+      icon: 'success',
+      title: 'Login Successful',
       showConfirmButton: false,
       timer: 1500,
     });
   };
   const logoutModal = () => {
     Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Logout Successful",
+      position: 'center',
+      icon: 'success',
+      title: 'Logout Successful',
       showConfirmButton: false,
       timer: 1500,
     });
@@ -157,10 +160,10 @@ const useFirebase = () => {
 
   const errorModal = () => {
     Swal.fire({
-      position: "center",
-      icon: "error",
-      title: "Oops...",
-      text: "Sign in failed ! Please try again later",
+      position: 'center',
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Sign in failed ! Please try again later',
     });
   };
 

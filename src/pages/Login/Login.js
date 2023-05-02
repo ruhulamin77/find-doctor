@@ -1,7 +1,7 @@
-import React from "react";
-import "./Login.css";
-import { Link } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import React from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import './Login.css';
 
 const Login = () => {
   const {
@@ -12,14 +12,24 @@ const Login = () => {
     successLogin,
     handleLoginUsingEmailAndPassword,
   } = useAuth();
+
+  const location = useLocation();
+  const history = useHistory();
+
+  const handleGoogleLogin = () => {
+    signInUsingGoogle(location, history);
+  };
+
+  const handleEmailAndPasswordLogin = (e) => {
+    e.preventDefault();
+    handleLoginUsingEmailAndPassword(history, location);
+  };
+
   return (
     <div className="login-container my-5">
       <div className="login-main">
         <h3 className=" mb-3 login-text">Please Login</h3>
-        <form
-          onSubmit={handleLoginUsingEmailAndPassword}
-          className="login-form"
-        >
+        <form onSubmit={handleEmailAndPasswordLogin} className="login-form">
           <input
             onBlur={handleEmailChange}
             type="email"
@@ -44,7 +54,7 @@ const Login = () => {
           New in this site? <Link to="/register">Please Register</Link>
         </p>
         <p className="or">OR</p>
-        <button onClick={signInUsingGoogle} className="btn-google">
+        <button onClick={handleGoogleLogin} className="btn-google">
           <i className="fab fa-google"></i> Sign in with google
         </button>
       </div>

@@ -1,7 +1,7 @@
-import React from "react";
-import "./Doctor.css";
-import { Card, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './Doctor.css';
 
 const Doctor = (props) => {
   const { name, description, img, id } = props.doctor;
